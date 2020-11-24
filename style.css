@@ -1,0 +1,409 @@
+body{
+  background-color: #fff8d5;
+  text-align: center;
+}
+::selection {
+  background-color: transparent;
+}
+#calculator_box{
+  width: 450px;
+  height: 418px;
+  margin: 20px auto;
+}
+#calculator{
+  background-color: #dad8d8;
+  width: 428px;
+  height: 418px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 0 3px black, -1px 1px 0px #686868, 0px 3px 6px black;
+  margin: 0 auto;
+}
+#calculator::before{
+  content: '';
+  border-radius: 10px;
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  height: 10%;
+  width: 98%;
+  background: linear-gradient(0deg,transparent 0%, #cbcdd4 100%);
+}
+#calculator::after{
+  content: '';
+  border-radius: 10px;
+  position: absolute;
+  bottom: 1%;
+  left: 1%;
+  height: 10%;
+  width: 98%;
+  background: linear-gradient(0deg,#cbcdd4 0%, transparent 100%);
+}
+#calculator::after{
+  content: '';
+}
+#buttons{
+  position: absolute;
+  top: 218px;
+  left: 32px;
+  width: 364px;
+}
+.bt_box{
+  width: 48px;
+  height: 48px;
+  margin: 5px;
+  float: left;
+  background-color: #dddfe0;
+  border: 1px solid #001c00;
+  border-radius: 5px;
+  position: relative;
+}
+.bt_box::before{
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  background-color: black;
+  border-radius: 5px;
+}
+.button{
+  background-color: #626367;
+  background: linear-gradient(0deg,#47484c 0%, #626367 100%);
+  width: 39px;
+  height: 40px;
+  color: white;
+  font-family: Arial;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  text-shadow: 0 0 3px black;
+  position: relative;
+  margin: 4px auto;
+  z-index: 2;
+  border-radius: 5px;
+  box-shadow: 3px 4px 6px black;
+}
+.button span{
+  position: relative;
+  z-index: 1;
+}
+.button::after{
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 84%;
+  height: 84%;
+  background-color: #57585a;
+  background: linear-gradient(0deg,#626367 0%, #47484c 100%);
+  border-radius: 20%;
+}
+.buttonPressed{
+  box-shadow: inset 0 0 4px #000000;
+}
+#display_box{
+  position: absolute;
+  top: 90px;
+  left: 20px;
+}
+:root {
+  --seg-size-x: 20px;
+  --seg-size-y: 6px;
+  --seg-size-part: calc(var(--seg-size-y) / 2);
+  --seg-x0: 0px;
+  --seg-x1: var(--seg-size-y);
+  --seg-x2: calc(var(--seg-x1) + var(--seg-size-x));
+  --seg-x3: calc(var(--seg-x2) + var(--seg-size-y) - var(--seg-size-part));
+  --seg-y0: 0px;
+  --seg-y1: var(--seg-size-y);
+  --seg-y2: calc(var(--seg-y1) + var(--seg-size-x));
+  --seg-y3: calc(var(--seg-y2) + var(--seg-size-y));
+  --seg-y4: calc(var(--seg-y3) + var(--seg-size-x));
+  --seg-display-color: #4deca0;
+  --seg-color: #4ce197;
+  --seg-color-active: #001c00;
+}
+#display{
+  position: relative;
+  background-color: var(--seg-display-color);
+  width: 370px;
+  height: 85px;
+  border-top: 5px solid #afa9a8;
+  border-right: 5px solid #afa9a8;
+  border-bottom: 5px solid #dddfe0;
+  border-left: 5px solid #959b98;
+  border-radius: 3px;
+  padding-right: 8px;
+  box-shadow: inset 0 0 6px #000000;
+}
+.number{
+  float: right;
+  position: relative;
+  width: 36px;
+  height: 65px;
+  margin: 13px 0;
+}
+.number .seg{
+  position: absolute;
+  background-color: var(--seg-color);
+}
+.number .seg.active{
+  background-color: var(--seg-color-active);
+}
+.seg1,.seg7,.seg4{
+  width: var(--seg-size-x);
+  height: var(--seg-size-y);
+}
+.seg2,.seg3,.seg5,.seg6{
+  height: var(--seg-size-x);
+  width: var(--seg-size-y);
+}
+.seg8{
+  width: var(--seg-size-y);
+  height: var(--seg-size-y);
+}
+.seg1{ left: var(--seg-x1); top: calc(var(--seg-y0) + var(--seg-size-y));}
+.seg2{ left: var(--seg-x2); top: calc(var(--seg-y1) + var(--seg-size-y));}
+.seg3{ left: var(--seg-x2); top: var(--seg-y3);}
+.seg4{ left: var(--seg-x1); top: calc(var(--seg-y4) - var(--seg-size-y));}
+.seg5{ left: var(--seg-x1); top: var(--seg-y3);}
+.seg6{ left: var(--seg-x1); top: calc(var(--seg-y1) + var(--seg-size-y));}
+.seg7{ left: var(--seg-x1); top: var(--seg-y2);}
+.seg8{ left: var(--seg-x3); top: var(--seg-y4);}
+
+.seg::before,.seg::after{
+  content: ' ';
+  position: absolute;
+  border: var(--seg-size-part) solid transparent;
+  top: 0px;
+  left: 0px;
+}
+.number .seg_horizontal, .number .seg_vertical{
+  background-color: transparent;
+}
+.seg_horizontal::before,.seg_horizontal::after{
+  width: calc(var(--seg-size-x) - var(--seg-size-y));
+  height: 0;
+}
+.seg_horizontal::before{
+  border-top-color: var(--seg-color);
+  top: calc(var(--seg-size-part) * 2);
+}
+.seg_horizontal::after{
+  border-bottom-color: var(--seg-color);
+  top: 0;
+}
+.seg_vertical::before,.seg_vertical::after{
+  height: calc(var(--seg-size-x) - var(--seg-size-y));
+  width: 0;
+}
+.seg_vertical::before{
+  border-right-color: var(--seg-color);
+  left: calc(var(--seg-size-y) * -1);
+}
+.seg_vertical::after{
+  border-left-color: var(--seg-color);
+  left: 0;
+}
+/* -------- seg 1 -------- */
+.num0 .seg1::before,
+.num2 .seg1::before,
+.num3 .seg1::before,
+.num5 .seg1::before,
+.num6 .seg1::before,
+.num7 .seg1::before,
+.num8 .seg1::before,
+.num9 .seg1::before
+{
+  border-top-color: var(--seg-color-active);
+}
+.num0 .seg1::after,
+.num2 .seg1::after,
+.num3 .seg1::after,
+.num5 .seg1::after,
+.num6 .seg1::after,
+.num7 .seg1::after,
+.num8 .seg1::after,
+.num9 .seg1::after
+{
+  border-bottom-color: var(--seg-color-active);
+}
+/* -------- ----- -------- */
+/* -------- seg 2 -------- */
+.num0 .seg2::before,
+.num1 .seg2::before,
+.num2 .seg2::before,
+.num3 .seg2::before,
+.num4 .seg2::before,
+.num7 .seg2::before,
+.num8 .seg2::before,
+.num9 .seg2::before
+{
+  border-right-color: var(--seg-color-active);
+}
+.num0 .seg2::after,
+.num1 .seg2::after,
+.num2 .seg2::after,
+.num3 .seg2::after,
+.num4 .seg2::after,
+.num7 .seg2::after,
+.num8 .seg2::after,
+.num9 .seg2::after
+{
+  border-left-color: var(--seg-color-active);
+}
+/* -------- ----- -------- */
+/* -------- seg 3 -------- */
+.num0 .seg3::before,
+.num1 .seg3::before,
+.num3 .seg3::before,
+.num4 .seg3::before,
+.num5 .seg3::before,
+.num6 .seg3::before,
+.num7 .seg3::before,
+.num8 .seg3::before,
+.num9 .seg3::before
+{
+  border-right-color: var(--seg-color-active);
+}
+.num0 .seg3::after,
+.num1 .seg3::after,
+.num3 .seg3::after,
+.num4 .seg3::after,
+.num5 .seg3::after,
+.num6 .seg3::after,
+.num7 .seg3::after,
+.num8 .seg3::after,
+.num9 .seg3::after
+{
+  border-left-color: var(--seg-color-active);
+}
+/* -------- ----- -------- */
+/* -------- seg 4 -------- */
+.num0 .seg4::before,
+.num2 .seg4::before,
+.num3 .seg4::before,
+.num5 .seg4::before,
+.num6 .seg4::before,
+.num8 .seg4::before,
+.num9 .seg4::before
+{
+  border-top-color: var(--seg-color-active);
+}
+.num0 .seg4::after,
+.num2 .seg4::after,
+.num3 .seg4::after,
+.num5 .seg4::after,
+.num6 .seg4::after,
+.num8 .seg4::after,
+.num9 .seg4::after
+{
+  border-bottom-color: var(--seg-color-active);
+}
+/* -------- ----- -------- */
+/* -------- seg 5 -------- */
+.num0 .seg5::before,
+.num2 .seg5::before,
+.num6 .seg5::before,
+.num8 .seg5::before
+{
+  border-right-color: var(--seg-color-active);
+}
+.num0 .seg5::after,
+.num2 .seg5::after,
+.num6 .seg5::after,
+.num8 .seg5::after
+{
+  border-left-color: var(--seg-color-active);
+}
+/* -------- ----- -------- */
+/* -------- seg 6 -------- */
+.num0 .seg6::before,
+.num4 .seg6::before,
+.num5 .seg6::before,
+.num6 .seg6::before,
+.num8 .seg6::before,
+.num9 .seg6::before
+{
+  border-right-color: var(--seg-color-active);
+}
+.num0 .seg6::after,
+.num4 .seg6::after,
+.num5 .seg6::after,
+.num6 .seg6::after,
+.num8 .seg6::after,
+.num9 .seg6::after
+{
+  border-left-color: var(--seg-color-active);
+}
+/* -------- ----- -------- */
+/* -------- seg 7 -------- */
+.neg .seg7::before,
+.num2 .seg7::before,
+.num3 .seg7::before,
+.num4 .seg7::before,
+.num5 .seg7::before,
+.num6 .seg7::before,
+.num8 .seg7::before,
+.num9 .seg7::before
+{
+  border-top-color: var(--seg-color-active);
+}
+.neg .seg7::after,
+.num2 .seg7::after,
+.num3 .seg7::after,
+.num4 .seg7::after,
+.num5 .seg7::after,
+.num6 .seg7::after,
+.num8 .seg7::after,
+.num9 .seg7::after
+{
+  border-bottom-color: var(--seg-color-active);
+}
+/* -------- ----- -------- */
+/* --------  dot  -------- */
+.dot .seg8
+{
+  background-color: var(--seg-color-active);
+}
+/* -------- ----- -------- */
+.forceOff .seg_horizontal::before{
+  border-top-color: var(--seg-color);
+}
+.forceOff .seg_horizontal::after{
+  border-bottom-color: var(--seg-color);
+}
+.forceOff .seg_vertical::before{
+  border-right-color: var(--seg-color);
+}
+.forceOff .seg_vertical::after{
+  border-left-color: var(--seg-color);
+}
+#panel{
+  position: absolute;
+  width: 80px;
+  height: 24px;
+  top: 50px;
+  right: 21px;
+  background-color: #4e4e4e;
+  border-radius: 4px;
+  box-shadow: inset 0 0 6px #000000;
+  overflow: hidden;
+}
+.panelLine{
+  float: left;
+  width: 18px;
+  height: 100%;
+  border-left: 1px solid #1b1b1b;
+  border-right: 1px solid #616161;
+}
+#myname{
+  color: #47484c;
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 10px;
+}

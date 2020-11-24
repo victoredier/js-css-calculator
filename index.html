@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=500">
+    <title>JS/CSS Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body>
+    <div id="calculator_box">
+      <div id="calculator">
+        <div id="panel">
+          <div class="panelLine"></div>
+          <div class="panelLine"></div>
+          <div class="panelLine"></div>
+          <div class="panelLine"></div>
+        </div>
+        <div id="display_box">
+          <div id="display">
+            <div id="number0" class="number">
+              <div class="seg seg1 seg_horizontal"></div>
+              <div class="seg seg2 seg_vertical"></div>
+              <div class="seg seg3 seg_vertical"></div>
+              <div class="seg seg4 seg_horizontal"></div>
+              <div class="seg seg5 seg_vertical"></div>
+              <div class="seg seg6 seg_vertical"></div>
+              <div class="seg seg7 seg_horizontal"></div>
+              <div class="seg seg8"></div>
+            </div>
+            <div id="number1" class="number">
+              <div class="seg seg1 seg_horizontal"></div>
+              <div class="seg seg2 seg_vertical"></div>
+              <div class="seg seg3 seg_vertical"></div>
+              <div class="seg seg4 seg_horizontal"></div>
+              <div class="seg seg5 seg_vertical"></div>
+              <div class="seg seg6 seg_vertical"></div>
+              <div class="seg seg7 seg_horizontal"></div>
+              <div class="seg seg8"></div>
+            </div>
+            <div id="number2" class="number">
+              <div class="seg seg1 seg_horizontal"></div>
+              <div class="seg seg2 seg_vertical"></div>
+              <div class="seg seg3 seg_vertical"></div>
+              <div class="seg seg4 seg_horizontal"></div>
+              <div class="seg seg5 seg_vertical"></div>
+              <div class="seg seg6 seg_vertical"></div>
+              <div class="seg seg7 seg_horizontal"></div>
+              <div class="seg seg8"></div>
+            </div>
+            <div id="number3" class="number">
+              <div class="seg seg1 seg_horizontal"></div>
+              <div class="seg seg2 seg_vertical"></div>
+              <div class="seg seg3 seg_vertical"></div>
+              <div class="seg seg4 seg_horizontal"></div>
+              <div class="seg seg5 seg_vertical"></div>
+              <div class="seg seg6 seg_vertical"></div>
+              <div class="seg seg7 seg_horizontal"></div>
+              <div class="seg seg8"></div>
+            </div>
+            <div id="number4" class="number">
+              <div class="seg seg1 seg_horizontal"></div>
+              <div class="seg seg2 seg_vertical"></div>
+              <div class="seg seg3 seg_vertical"></div>
+              <div class="seg seg4 seg_horizontal"></div>
+              <div class="seg seg5 seg_vertical"></div>
+              <div class="seg seg6 seg_vertical"></div>
+              <div class="seg seg7 seg_horizontal"></div>
+              <div class="seg seg8"></div>
+            </div>
+            <div id="number5" class="number">
+              <div class="seg seg1 seg_horizontal"></div>
+              <div class="seg seg2 seg_vertical"></div>
+              <div class="seg seg3 seg_vertical"></div>
+              <div class="seg seg4 seg_horizontal"></div>
+              <div class="seg seg5 seg_vertical"></div>
+              <div class="seg seg6 seg_vertical"></div>
+              <div class="seg seg7 seg_horizontal"></div>
+              <div class="seg seg8"></div>
+            </div>
+            <div id="number6" class="number">
+              <div class="seg seg1 seg_horizontal"></div>
+              <div class="seg seg2 seg_vertical"></div>
+              <div class="seg seg3 seg_vertical"></div>
+              <div class="seg seg4 seg_horizontal"></div>
+              <div class="seg seg5 seg_vertical"></div>
+              <div class="seg seg6 seg_vertical"></div>
+              <div class="seg seg7 seg_horizontal"></div>
+              <div class="seg seg8"></div>
+            </div>
+            <div id="number7" class="number">
+              <div class="seg seg1 seg_horizontal"></div>
+              <div class="seg seg2 seg_vertical"></div>
+              <div class="seg seg3 seg_vertical"></div>
+              <div class="seg seg4 seg_horizontal"></div>
+              <div class="seg seg5 seg_vertical"></div>
+              <div class="seg seg6 seg_vertical"></div>
+              <div class="seg seg7 seg_horizontal"></div>
+              <div class="seg seg8"></div>
+            </div>
+            <div id="number8" class="number">
+              <div class="seg seg1 seg_horizontal"></div>
+              <div class="seg seg2 seg_vertical"></div>
+              <div class="seg seg3 seg_vertical"></div>
+              <div class="seg seg4 seg_horizontal"></div>
+              <div class="seg seg5 seg_vertical"></div>
+              <div class="seg seg6 seg_vertical"></div>
+              <div class="seg seg7 seg_horizontal"></div>
+              <div class="seg seg8"></div>
+            </div>
+            <div id="number9" class="number">
+              <div class="seg seg1 seg_horizontal"></div>
+              <div class="seg seg2 seg_vertical"></div>
+              <div class="seg seg3 seg_vertical"></div>
+              <div class="seg seg4 seg_horizontal"></div>
+              <div class="seg seg5 seg_vertical"></div>
+              <div class="seg seg6 seg_vertical"></div>
+              <div class="seg seg7 seg_horizontal"></div>
+              <div class="seg seg8"></div>
+            </div>
+          </div>
+        </div>
+        <div id="buttons">
+          <div class="bt_box"><div data-opt="7" class="button"><span>7</span></div></div>
+          <div class="bt_box"><div data-opt="8" class="button"><span>8</span></div></div>
+          <div class="bt_box"><div data-opt="9" class="button"><span>9</span></div></div>
+          <div class="bt_box"><div data-opt="0" class="button"><span>0</span></div></div>
+          <div class="bt_box"><div data-opt="x" class="button"><span>x</span></div></div>
+          <div class="bt_box"><div data-opt="=" class="button"><span>=</span></div></div>
+          <div class="bt_box"><div data-opt="4" class="button"><span>4</span></div></div>
+          <div class="bt_box"><div data-opt="5" class="button"><span>5</span></div></div>
+          <div class="bt_box"><div data-opt="6" class="button"><span>6</span></div></div>
+          <div class="bt_box"><div data-opt="+" class="button"><span>+</span></div></div>
+          <div class="bt_box"><div data-opt="/" class="button"><span>/</span></div></div>
+          <div class="bt_box"><div data-opt="C" class="button"><span>C</span></div></div>
+          <div class="bt_box"><div data-opt="1" class="button"><span>1</span></div></div>
+          <div class="bt_box"><div data-opt="2" class="button"><span>2</span></div></div>
+          <div class="bt_box"><div data-opt="3" class="button"><span>3</span></div></div>
+          <div class="bt_box"><div data-opt="-" class="button"><span>-</span></div></div>
+          <div class="bt_box"><div data-opt="." class="button"><span>.</span></div></div> 
+          <div class="bt_box"><div data-opt="N" class="button"><span>ON</span></div></div>
+        </div>
+      </div>
+      <span id="myname">victor edier</span>
+    </div>
+  </body>
+</html>
